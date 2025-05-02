@@ -1,0 +1,14 @@
+[requires]
+fmt/10.1.1
+eigen/3.4.0
+fast-cpp-csv-parser/20191004
+
+[tool_requires]
+
+[generators]
+CMakeToolchain
+CMakeDeps
+
+[layout]
+cmake_layout
+

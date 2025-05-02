@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/alderson/Projects/Mine/real-estate-price-prediction/build/Debug",
+  "command": "/usr/bin/c++  -isystem /home/alderson/.conan2/p/b/fmt7df5fcf1e98ca/p/include -isystem /home/alderson/.conan2/p/eigen3d88c0279cc26/p/include/eigen3 -isystem /home/alderson/.conan2/p/fast-10f1bd0aed5fe/p/include -isystem /home/alderson/.conan2/p/fast-10f1bd0aed5fe/p/include/fast-cpp-csv-parser -isystem /usr/local/cuda/targets/x86_64-linux/include -m64 -g -std=gnu++17 -o CMakeFiles/my_project.dir/src/main.cpp.o -c /home/alderson/Projects/Mine/real-estate-price-prediction/src/main.cpp",
+  "file": "/home/alderson/Projects/Mine/real-estate-price-prediction/src/main.cpp",
+  "output": "CMakeFiles/my_project.dir/src/main.cpp.o"
+}
+]
