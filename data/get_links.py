@@ -7,10 +7,10 @@ BASE = "https://999.md"
 url = ("https://999.md/ro/list/real-estate/apartments-and-rooms"
        "?appl=1&selected_currency=eur&ef=16,6,2307,2200&eo=13859,12885,12900,12912"
        "&o_16_1=776&page=")
-pages = 224
+pages = 230
 links = []
 
-for i in range(201, pages + 1):
+for i in range(0, pages + 1):
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -36,5 +36,5 @@ for i in range(201, pages + 1):
         browser.close()
 
 links = list(set(links))
-pd.DataFrame(links, columns=["URL"]).to_csv("links2.csv", index=False)
+pd.DataFrame(links, columns=["URL"]).to_csv("links.csv", index=False)
 
