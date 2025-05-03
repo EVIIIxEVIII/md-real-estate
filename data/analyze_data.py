@@ -67,19 +67,21 @@ df['ceiling_height'] = pd.to_numeric(df['ceiling_height'], errors='coerce')
 df['number_of_rooms'] = df['number_of_rooms'].apply(lambda x: number_of_rooms_types[x] if x is not None else "")
 df['number_of_rooms'] = pd.to_numeric(df['number_of_rooms'], errors='coerce')
 
+df['is_penthouse'] = (df['floor'].str.lower() == 'penthouse').astype(int)
+df['floor'] = pd.to_numeric(df['floor'], errors='coerce')
+
+median_floor = df['floor'].median()
+df['floor'] = df['floor'].fillna(median_floor)
+
+df['compartmentalization'] = df['compartmentalization'].fillna("Individuală")
+
+df['bathroom'] = pd.to_numeric(df['bathroom'], errors='coerce')
+df['bathroom'] = df['bathroom'].fillna(1)
+
 df = df[df['total_area'] < 500]
 df = df[df['price'] < 750_000]
 
 df.to_csv("./datasets/final_data.csv", index=False)
-
-plt.scatter(df['total_area'], df['price'])
-plt.show()
-
-plt.scatter(df['ceiling_height'], df['price'])
-plt.show()
-
-plt.scatter(df['number_of_rooms'], df['price'])
-plt.show()
 
 df_main_fields = df[[
     'price',
@@ -89,11 +91,17 @@ df_main_fields = df[[
     'housing_fund',
     'region',
     'living_room',
+    'parking_spot',
+    'number_of_floors',
+    'bathroom',
+    'floor',
+    'is_penthouse',
+    'compartmentalization',
 ]]
 
 df_encoded = pd.get_dummies(
     df_main_fields,
-    columns=['apartment_condition', 'housing_fund', 'region', 'living_room'],
+    columns=['apartment_condition', 'housing_fund', 'region', 'living_room', 'parking_spot', 'compartmentalization'],
     drop_first=True
 ).astype(int)
 
@@ -104,4 +112,7 @@ string = ""
 for i, col in enumerate(columns):
     end = "," if i < len(columns) - 1 else ""
     string += f'"{col}"{end}';
+
 print(string)
+
+print(df[df['is_penthouse'] == 1])

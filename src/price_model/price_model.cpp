@@ -10,8 +10,12 @@ PriceModel::PriceModel(std::string data_path): data_path(data_path) {
     LoadedData data = load_data(data_path);
     SplitData spl_data = split_data(data);
 
-    enlr(spl_data.X_train, spl_data.Y_train, 2.0, 3.0);
+    ols(spl_data.X_train, spl_data.Y_train);
     evaluate_model(spl_data.x_test, spl_data.y_test);
+
+    enlr(spl_data.X_train, spl_data.Y_train, 20., 50.);
+    evaluate_model(spl_data.x_test, spl_data.y_test);
+    save_vector_binary("model.bin");
 }
 
 SplitData PriceModel::split_data(LoadedData<PriceModel::F> data)
@@ -113,15 +117,15 @@ double PriceModel::soft_threshold(double z, double gamma) {
     return 0.0;
 }
 
-void PriceModel::save_vector_binary(const std::string& filename, const Eigen::VectorXd& vec) {
+void PriceModel::save_vector_binary(const std::string& filename) {
 	std::ofstream out(filename, std::ios::binary);
 	if (!out) {
 		throw std::runtime_error("Cannot open file for writing: " + filename);
 	}
 
-	const Eigen::Index size = vec.size();
+	const Eigen::Index size = model.size();
 	out.write(reinterpret_cast<const char*>(&size), sizeof(Eigen::Index));
-	out.write(reinterpret_cast<const char*>(vec.data()), sizeof(double) * size);
+	out.write(reinterpret_cast<const char*>(model.data()), sizeof(double) * size);
 }
 
 void PriceModel::enlr(const Eigen::MatrixXd& X, const Eigen::VectorXd& y, double lambda1, double lambda2) {
