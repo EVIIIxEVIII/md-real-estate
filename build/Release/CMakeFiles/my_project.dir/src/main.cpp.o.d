@@ -435,4 +435,6 @@ CMakeFiles/my_project.dir/src/main.cpp.o: \
  /home/alderson/.conan2/p/eigen3d88c0279cc26/p/include/eigen3/Eigen/src/Eigenvalues/RealQZ.h \
  /home/alderson/.conan2/p/eigen3d88c0279cc26/p/include/eigen3/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
  /home/alderson/Projects/Mine/real-estate-price-prediction/src/./price_model/price_model_ols.hpp \
- /home/alderson/Projects/Mine/real-estate-price-prediction/src/./price_model/data_handler.hpp
+ /home/alderson/Projects/Mine/real-estate-price-prediction/src/./price_model/data_handler.hpp \
+ /home/alderson/Projects/Mine/real-estate-price-prediction/src/./price_model/price_model_gradient_boosted.hpp \
+ /home/alderson/Projects/Mine/real-estate-price-prediction/src/./price_model/regression_tree.hpp

@@ -4,7 +4,7 @@ from xgboost import XGBRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
-df = pd.read_csv("./datasets/encoded_df.csv")
+df = pd.read_csv("./datasets/non_encoded_df.csv")
 
 X = df.drop(columns=['price'])
 y = df['price']

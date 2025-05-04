@@ -99,6 +99,11 @@ df_main_fields = df[[
     'compartmentalization',
 ]]
 
+df_non_encoded = df_main_fields.copy()
+for col in df_non_encoded.select_dtypes(include='object').columns:
+	df_non_encoded[col] = df_non_encoded[col].astype('category').cat.codes
+df_non_encoded.to_csv('./datasets/non_encoded_df.csv', index=False);
+
 df_encoded = pd.get_dummies(
     df_main_fields,
     columns=['apartment_condition', 'housing_fund', 'region', 'living_room', 'parking_spot', 'compartmentalization'],
@@ -107,6 +112,15 @@ df_encoded = pd.get_dummies(
 
 df_encoded.to_csv('./datasets/encoded_df.csv', index=False);
 
+columns = [col for col in df_main_fields.columns if col != "price"]
+string = ""
+for i, col in enumerate(columns):
+    end = "," if i < len(columns) - 1 else ""
+    string += f'"{col}"{end}';
+
+print(string)
+print("\n\n\n")
+
 columns = [col for col in df_encoded.columns if col != "price"]
 string = ""
 for i, col in enumerate(columns):
@@ -114,5 +128,3 @@ for i, col in enumerate(columns):
     string += f'"{col}"{end}';
 
 print(string)
-
-print(df[df['is_penthouse'] == 1])

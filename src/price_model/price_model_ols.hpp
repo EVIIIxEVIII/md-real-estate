@@ -1,3 +1,5 @@
+#pragma once
+
 #include <Eigen/Dense>
 #include <csv.h>
 #include <memory>
@@ -14,8 +16,6 @@ class Ols {
     private:
         std::shared_ptr<DataHandler> data_handler;
         Eigen::VectorXd model;
-        std::array<double, DataHandler::NF> stds;
-        std::array<double, DataHandler::NF> means;
 
         SplitData split_data(LoadedData<DataHandler::F> data);
 
