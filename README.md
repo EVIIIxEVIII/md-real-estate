@@ -1,4 +1,4 @@
-# C++ application for real estate analysis in Moldova
+# C++ application for real estate price analysis in Moldova
 Data was collected from 999.md. The model used is a gradient boosted forest.
 
 # Comparison with existing models:
