@@ -1,1 +1,1 @@
-# C++ application for real estate analysis
+# C++ application for real estate analysis in Moldova
