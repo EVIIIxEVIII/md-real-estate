@@ -83,35 +83,83 @@ CMakeFiles/my_project.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_project.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alderson/Projects/Mine/real-estate-price-prediction/src/main.cpp -o CMakeFiles/my_project.dir/src/main.cpp.s
 
-CMakeFiles/my_project.dir/src/price_model/price_model.cpp.o: CMakeFiles/my_project.dir/flags.make
-CMakeFiles/my_project.dir/src/price_model/price_model.cpp.o: /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/price_model.cpp
-CMakeFiles/my_project.dir/src/price_model/price_model.cpp.o: CMakeFiles/my_project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/my_project.dir/src/price_model/price_model.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_project.dir/src/price_model/price_model.cpp.o -MF CMakeFiles/my_project.dir/src/price_model/price_model.cpp.o.d -o CMakeFiles/my_project.dir/src/price_model/price_model.cpp.o -c /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/price_model.cpp
+CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.o: CMakeFiles/my_project.dir/flags.make
+CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.o: /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/data_handler.cpp
+CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.o: CMakeFiles/my_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.o -MF CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.o.d -o CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.o -c /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/data_handler.cpp
 
-CMakeFiles/my_project.dir/src/price_model/price_model.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_project.dir/src/price_model/price_model.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/price_model.cpp > CMakeFiles/my_project.dir/src/price_model/price_model.cpp.i
+CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/data_handler.cpp > CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.i
 
-CMakeFiles/my_project.dir/src/price_model/price_model.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_project.dir/src/price_model/price_model.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/price_model.cpp -o CMakeFiles/my_project.dir/src/price_model/price_model.cpp.s
+CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/data_handler.cpp -o CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.s
+
+CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.o: CMakeFiles/my_project.dir/flags.make
+CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.o: /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/price_model_gradient_boosted.cpp
+CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.o: CMakeFiles/my_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.o -MF CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.o.d -o CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.o -c /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/price_model_gradient_boosted.cpp
+
+CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/price_model_gradient_boosted.cpp > CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.i
+
+CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/price_model_gradient_boosted.cpp -o CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.s
+
+CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o: CMakeFiles/my_project.dir/flags.make
+CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o: /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/price_model_ols.cpp
+CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o: CMakeFiles/my_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o -MF CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o.d -o CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o -c /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/price_model_ols.cpp
+
+CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/price_model_ols.cpp > CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.i
+
+CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/price_model_ols.cpp -o CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.s
+
+CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o: CMakeFiles/my_project.dir/flags.make
+CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o: /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/regression_tree.cpp
+CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o: CMakeFiles/my_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o -MF CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o.d -o CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o -c /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/regression_tree.cpp
+
+CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/regression_tree.cpp > CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.i
+
+CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/regression_tree.cpp -o CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.s
 
 # Object files for target my_project
 my_project_OBJECTS = \
 "CMakeFiles/my_project.dir/src/main.cpp.o" \
-"CMakeFiles/my_project.dir/src/price_model/price_model.cpp.o"
+"CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.o" \
+"CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.o" \
+"CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o" \
+"CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o"
 
 # External object files for target my_project
 my_project_EXTERNAL_OBJECTS =
 
 my_project: CMakeFiles/my_project.dir/src/main.cpp.o
-my_project: CMakeFiles/my_project.dir/src/price_model/price_model.cpp.o
+my_project: CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.o
+my_project: CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.o
+my_project: CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o
+my_project: CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o
 my_project: CMakeFiles/my_project.dir/build.make
 my_project: /usr/local/cuda-12.8/targets/x86_64-linux/lib/libcudart.so
 my_project: /home/alderson/.conan2/p/b/fmtf13ca0ef487e0/p/lib/libfmt.a
 my_project: CMakeFiles/my_project.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable my_project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable my_project"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my_project.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

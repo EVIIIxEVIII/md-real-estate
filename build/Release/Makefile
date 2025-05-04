@@ -153,29 +153,101 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/price_model/price_model.o: src/price_model/price_model.cpp.o
-.PHONY : src/price_model/price_model.o
+src/price_model/data_handler.o: src/price_model/data_handler.cpp.o
+.PHONY : src/price_model/data_handler.o
 
 # target to build an object file
-src/price_model/price_model.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/price_model.cpp.o
-.PHONY : src/price_model/price_model.cpp.o
+src/price_model/data_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.o
+.PHONY : src/price_model/data_handler.cpp.o
 
-src/price_model/price_model.i: src/price_model/price_model.cpp.i
-.PHONY : src/price_model/price_model.i
+src/price_model/data_handler.i: src/price_model/data_handler.cpp.i
+.PHONY : src/price_model/data_handler.i
 
 # target to preprocess a source file
-src/price_model/price_model.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/price_model.cpp.i
-.PHONY : src/price_model/price_model.cpp.i
+src/price_model/data_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.i
+.PHONY : src/price_model/data_handler.cpp.i
 
-src/price_model/price_model.s: src/price_model/price_model.cpp.s
-.PHONY : src/price_model/price_model.s
+src/price_model/data_handler.s: src/price_model/data_handler.cpp.s
+.PHONY : src/price_model/data_handler.s
 
 # target to generate assembly for a file
-src/price_model/price_model.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/price_model.cpp.s
-.PHONY : src/price_model/price_model.cpp.s
+src/price_model/data_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.s
+.PHONY : src/price_model/data_handler.cpp.s
+
+src/price_model/price_model_gradient_boosted.o: src/price_model/price_model_gradient_boosted.cpp.o
+.PHONY : src/price_model/price_model_gradient_boosted.o
+
+# target to build an object file
+src/price_model/price_model_gradient_boosted.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.o
+.PHONY : src/price_model/price_model_gradient_boosted.cpp.o
+
+src/price_model/price_model_gradient_boosted.i: src/price_model/price_model_gradient_boosted.cpp.i
+.PHONY : src/price_model/price_model_gradient_boosted.i
+
+# target to preprocess a source file
+src/price_model/price_model_gradient_boosted.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.i
+.PHONY : src/price_model/price_model_gradient_boosted.cpp.i
+
+src/price_model/price_model_gradient_boosted.s: src/price_model/price_model_gradient_boosted.cpp.s
+.PHONY : src/price_model/price_model_gradient_boosted.s
+
+# target to generate assembly for a file
+src/price_model/price_model_gradient_boosted.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.s
+.PHONY : src/price_model/price_model_gradient_boosted.cpp.s
+
+src/price_model/price_model_ols.o: src/price_model/price_model_ols.cpp.o
+.PHONY : src/price_model/price_model_ols.o
+
+# target to build an object file
+src/price_model/price_model_ols.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o
+.PHONY : src/price_model/price_model_ols.cpp.o
+
+src/price_model/price_model_ols.i: src/price_model/price_model_ols.cpp.i
+.PHONY : src/price_model/price_model_ols.i
+
+# target to preprocess a source file
+src/price_model/price_model_ols.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.i
+.PHONY : src/price_model/price_model_ols.cpp.i
+
+src/price_model/price_model_ols.s: src/price_model/price_model_ols.cpp.s
+.PHONY : src/price_model/price_model_ols.s
+
+# target to generate assembly for a file
+src/price_model/price_model_ols.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.s
+.PHONY : src/price_model/price_model_ols.cpp.s
+
+src/price_model/regression_tree.o: src/price_model/regression_tree.cpp.o
+.PHONY : src/price_model/regression_tree.o
+
+# target to build an object file
+src/price_model/regression_tree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o
+.PHONY : src/price_model/regression_tree.cpp.o
+
+src/price_model/regression_tree.i: src/price_model/regression_tree.cpp.i
+.PHONY : src/price_model/regression_tree.i
+
+# target to preprocess a source file
+src/price_model/regression_tree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.i
+.PHONY : src/price_model/regression_tree.cpp.i
+
+src/price_model/regression_tree.s: src/price_model/regression_tree.cpp.s
+.PHONY : src/price_model/regression_tree.s
+
+# target to generate assembly for a file
+src/price_model/regression_tree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.s
+.PHONY : src/price_model/regression_tree.cpp.s
 
 # Help Target
 help:
@@ -189,9 +261,18 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/price_model/price_model.o"
-	@echo "... src/price_model/price_model.i"
-	@echo "... src/price_model/price_model.s"
+	@echo "... src/price_model/data_handler.o"
+	@echo "... src/price_model/data_handler.i"
+	@echo "... src/price_model/data_handler.s"
+	@echo "... src/price_model/price_model_gradient_boosted.o"
+	@echo "... src/price_model/price_model_gradient_boosted.i"
+	@echo "... src/price_model/price_model_gradient_boosted.s"
+	@echo "... src/price_model/price_model_ols.o"
+	@echo "... src/price_model/price_model_ols.i"
+	@echo "... src/price_model/price_model_ols.s"
+	@echo "... src/price_model/regression_tree.o"
+	@echo "... src/price_model/regression_tree.i"
+	@echo "... src/price_model/regression_tree.s"
 .PHONY : help
 
 
