@@ -9,7 +9,7 @@
 int main()
 {
     auto data_handler = std::make_shared<price_model::DataHandler>("./data/datasets/non_encoded_df.csv");
-    price_model::SplitData split_data = data_handler->get_split_data(.90, false);
+    price_model::SplitData split_data = data_handler->get_split_data(.75, false);
     // auto ols_price_model = std::make_unique<price_model::Ols>(data_handler);
 
     price_model::GradientBoostConfig gradient_boost_config{

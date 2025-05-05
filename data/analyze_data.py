@@ -73,6 +73,9 @@ df['floor'] = pd.to_numeric(df['floor'], errors='coerce')
 median_floor = df['floor'].median()
 df['floor'] = df['floor'].fillna(median_floor)
 
+media_ceiling_height = df['ceiling_height'].median()
+df['ceiling_height'] = df['ceiling_height'].fillna(media_ceiling_height)
+
 df['compartmentalization'] = df['compartmentalization'].fillna("Individuală")
 
 df['bathroom'] = pd.to_numeric(df['bathroom'], errors='coerce')
@@ -112,7 +115,7 @@ df_encoded = pd.get_dummies(
 
 df_encoded.to_csv('./datasets/encoded_df.csv', index=False);
 
-columns = [col for col in df_main_fields.columns if col != "price"]
+columns = [col for col in df_non_encoded.columns if col != "price"]
 string = ""
 for i, col in enumerate(columns):
     end = "," if i < len(columns) - 1 else ""
