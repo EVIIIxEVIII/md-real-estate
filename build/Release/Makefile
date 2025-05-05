@@ -249,6 +249,54 @@ src/price_model/regression_tree.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.s
 .PHONY : src/price_model/regression_tree.cpp.s
 
+src/ui/app.o: src/ui/app.cpp.o
+.PHONY : src/ui/app.o
+
+# target to build an object file
+src/ui/app.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/ui/app.cpp.o
+.PHONY : src/ui/app.cpp.o
+
+src/ui/app.i: src/ui/app.cpp.i
+.PHONY : src/ui/app.i
+
+# target to preprocess a source file
+src/ui/app.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/ui/app.cpp.i
+.PHONY : src/ui/app.cpp.i
+
+src/ui/app.s: src/ui/app.cpp.s
+.PHONY : src/ui/app.s
+
+# target to generate assembly for a file
+src/ui/app.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/ui/app.cpp.s
+.PHONY : src/ui/app.cpp.s
+
+src/ui/search_select.o: src/ui/search_select.cpp.o
+.PHONY : src/ui/search_select.o
+
+# target to build an object file
+src/ui/search_select.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/ui/search_select.cpp.o
+.PHONY : src/ui/search_select.cpp.o
+
+src/ui/search_select.i: src/ui/search_select.cpp.i
+.PHONY : src/ui/search_select.i
+
+# target to preprocess a source file
+src/ui/search_select.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/ui/search_select.cpp.i
+.PHONY : src/ui/search_select.cpp.i
+
+src/ui/search_select.s: src/ui/search_select.cpp.s
+.PHONY : src/ui/search_select.s
+
+# target to generate assembly for a file
+src/ui/search_select.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/ui/search_select.cpp.s
+.PHONY : src/ui/search_select.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,6 +321,12 @@ help:
 	@echo "... src/price_model/regression_tree.o"
 	@echo "... src/price_model/regression_tree.i"
 	@echo "... src/price_model/regression_tree.s"
+	@echo "... src/ui/app.o"
+	@echo "... src/ui/app.i"
+	@echo "... src/ui/app.s"
+	@echo "... src/ui/search_select.o"
+	@echo "... src/ui/search_select.i"
+	@echo "... src/ui/search_select.s"
 .PHONY : help
 
 

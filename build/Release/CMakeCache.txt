@@ -444,8 +444,8 @@ Threads_DIR:PATH=Threads_DIR-NOTFOUND
 //The directory containing a CMake configuration file for fast-cpp-csv-parser.
 fast-cpp-csv-parser_DIR:PATH=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/generators
 
-//The directory containing a CMake configuration file for fmt.
-fmt_DIR:PATH=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/generators
+//The directory containing a CMake configuration file for glfw3.
+glfw3_DIR:PATH=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/generators
 
 //Value Computed by CMake
 my_project_BINARY_DIR:STATIC=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release
@@ -455,6 +455,15 @@ my_project_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 my_project_SOURCE_DIR:STATIC=/home/alderson/Projects/Mine/real-estate-price-prediction
+
+//The directory containing a CMake configuration file for opengl_system.
+opengl_system_DIR:PATH=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/generators
+
+//The directory containing a CMake configuration file for raylib.
+raylib_DIR:PATH=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/generators
+
+//The directory containing a CMake configuration file for xorg.
+xorg_DIR:PATH=/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/generators
 
 
 ########################

@@ -134,9 +134,9 @@ list(PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR})
 # Definition of CMAKE_PREFIX_PATH, CMAKE_XXXXX_PATH
 # The Conan local "generators" folder, where this toolchain is saved.
 list(PREPEND CMAKE_PREFIX_PATH ${CMAKE_CURRENT_LIST_DIR} )
-list(PREPEND CMAKE_LIBRARY_PATH "/home/alderson/.conan2/p/b/fmtf13ca0ef487e0/p/lib")
-list(PREPEND CMAKE_INCLUDE_PATH "/home/alderson/.conan2/p/b/fmtf13ca0ef487e0/p/include" "/home/alderson/.conan2/p/eigen3d88c0279cc26/p/include/eigen3" "/home/alderson/.conan2/p/fast-10f1bd0aed5fe/p/include" "/home/alderson/.conan2/p/fast-10f1bd0aed5fe/p/include/fast-cpp-csv-parser")
-set(CONAN_RUNTIME_LIB_DIRS "/home/alderson/.conan2/p/b/fmtf13ca0ef487e0/p/lib" )
+list(PREPEND CMAKE_LIBRARY_PATH "/home/alderson/.conan2/p/b/raylia7d91333bd07f/p/lib" "/home/alderson/.conan2/p/b/glfw43e8291cfb5d1/p/lib")
+list(PREPEND CMAKE_INCLUDE_PATH "/home/alderson/.conan2/p/eigen3d88c0279cc26/p/include/eigen3" "/home/alderson/.conan2/p/fast-10f1bd0aed5fe/p/include" "/home/alderson/.conan2/p/fast-10f1bd0aed5fe/p/include/fast-cpp-csv-parser" "/home/alderson/.conan2/p/b/raylia7d91333bd07f/p/include" "/home/alderson/.conan2/p/b/glfw43e8291cfb5d1/p/include")
+set(CONAN_RUNTIME_LIB_DIRS "/home/alderson/.conan2/p/b/raylia7d91333bd07f/p/lib" "/home/alderson/.conan2/p/b/glfw43e8291cfb5d1/p/lib" )
 
 endif()
 

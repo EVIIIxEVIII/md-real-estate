@@ -7,7 +7,7 @@ import os
 
 BASE      = "https://999.md"
 links     = np.array(pd.read_csv("links.csv")["URL"])
-CSV_FILE  = "apartments.csv"
+CSV_FILE  = "test.csv"
 
 def ensure_columns(row_df: pd.DataFrame, csv_path: str) -> pd.DataFrame:
     """
@@ -56,12 +56,12 @@ with sync_playwright() as p:
     context = browser.new_context()
     page    = context.new_page()
 
-    for rel_link in links[12957:]:
+    for rel_link in links:
         url = BASE + rel_link
         print("fetching", url)
 
         try:
-            page.goto(url, wait_until="domcontentloaded", timeout=60_000)
+            page.goto(url, wait_until="commit", timeout=60_000)
             page.wait_for_selector('div[data-sentry-component="Price"]', timeout=10_000)
         except PlayTimeout:
             print("timeout, skip", url)
