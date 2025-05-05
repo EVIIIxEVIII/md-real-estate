@@ -4,7 +4,7 @@ from xgboost import XGBRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
-df = pd.read_csv("./datasets/non_encoded_df.csv")
+df = pd.read_csv("./kaggle-test/train_filtered.csv")
 
 X = df.drop(columns=['price'])
 y = df['price']
@@ -38,6 +38,7 @@ mae = mean_absolute_error(y_test, y_pred)
 mse = mean_squared_error(y_test, y_pred)
 rmse = np.sqrt(mse)
 r2 = r2_score(y_test, y_pred)
+
 
 print("\nEvaluation Metrics:")
 print(f"MAE  = {mae:.1f}")
