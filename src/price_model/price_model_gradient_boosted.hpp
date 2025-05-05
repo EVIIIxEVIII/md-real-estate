@@ -17,10 +17,19 @@ struct Node {
     float value;
 };
 
+struct GradientBoostConfig {
+    int n_estimators;
+    double learning_rate;
+    int max_depth;
+    int min_dataset_size;
+};
+
 class GradientBoost {
     public:
-        GradientBoost(std::shared_ptr<DataHandler> data_handler);
+        GradientBoost(GradientBoostConfig& config): config(config) {};
         Eigen::VectorXd predict(const Eigen::MatrixXd& X);
+        void train(const Eigen::MatrixXd& X, const Eigen::VectorXd& y);
+        void evaluate_model(const Eigen::MatrixXd& x_test, const Eigen::VectorXd& y_test);
 
     private:
         struct Model {
@@ -28,11 +37,8 @@ class GradientBoost {
             std::vector<std::unique_ptr<RegressionTree>> regression_trees;
         };
 
-        std::shared_ptr<DataHandler> data_handler;
+        GradientBoostConfig& config;
         Model model;
-
-        void train(const Eigen::MatrixXd& X, const Eigen::VectorXd& y);
-        void evaluate_model(const Eigen::MatrixXd& x_test, const Eigen::VectorXd& y_test);
 };
 
 }

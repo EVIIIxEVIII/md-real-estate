@@ -6,13 +6,6 @@
 
 namespace price_model {
 
-
-GradientBoost::GradientBoost(std::shared_ptr<DataHandler> data_handler): data_handler(data_handler) {
-    SplitData split_data = data_handler->get_split_data(.90, false);
-    train(split_data.X_train, split_data.Y_train);
-    evaluate_model(split_data.x_test, split_data.y_test);
-};
-
 void GradientBoost::evaluate_model(const Eigen::MatrixXd& x_test, const Eigen::VectorXd& y_test) {
 	Eigen::VectorXd y_pred = predict(x_test);
 	assert(y_test.size() == y_pred.size());
@@ -55,7 +48,7 @@ void GradientBoost::evaluate_model(const Eigen::MatrixXd& x_test, const Eigen::V
 
 Eigen::VectorXd GradientBoost::predict(const Eigen::MatrixXd& X) {
     const int trees_num = model.regression_trees.size();
-    const double learning_rate = 0.005;
+    const double learning_rate = config.learning_rate;
 
     Eigen::VectorXd y_pred = Eigen::VectorXd::Constant(X.rows(), model.F_0);
 
@@ -75,15 +68,15 @@ void GradientBoost::train(const Eigen::MatrixXd& X, const Eigen::VectorXd& y) {
     Eigen::VectorXd residues = y - predictions;
 
     std::vector<std::unique_ptr<RegressionTree>> regression_trees;
-    regression_trees.reserve(2000);
+    regression_trees.reserve(config.n_estimators);
 
     const auto train_config = RegressionTree::TrainConfig {
-        .max_depth = 12,
-        .min_dataset_size = 50
+        .max_depth = config.max_depth,
+        .min_dataset_size = config.min_dataset_size,
     };
 
-    const double learning_rate = 0.005;
-    const int n_rounds = 2000;
+    const double learning_rate = config.learning_rate;
+    const int n_rounds = config.n_estimators;
 
     for (int i = 0; i < n_rounds; i++) {
         auto tree = std::make_unique<RegressionTree>();
