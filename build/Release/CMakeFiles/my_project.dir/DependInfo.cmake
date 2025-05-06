@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/price_model_ols.cpp" "CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o" "gcc" "CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o.d"
   "/home/alderson/Projects/Mine/real-estate-price-prediction/src/price_model/regression_tree.cpp" "CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o" "gcc" "CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o.d"
   "/home/alderson/Projects/Mine/real-estate-price-prediction/src/ui/app.cpp" "CMakeFiles/my_project.dir/src/ui/app.cpp.o" "gcc" "CMakeFiles/my_project.dir/src/ui/app.cpp.o.d"
+  "/home/alderson/Projects/Mine/real-estate-price-prediction/src/ui/input.cpp" "CMakeFiles/my_project.dir/src/ui/input.cpp.o" "gcc" "CMakeFiles/my_project.dir/src/ui/input.cpp.o.d"
   "/home/alderson/Projects/Mine/real-estate-price-prediction/src/ui/search_select.cpp" "CMakeFiles/my_project.dir/src/ui/search_select.cpp.o" "gcc" "CMakeFiles/my_project.dir/src/ui/search_select.cpp.o.d"
   )
 

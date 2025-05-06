@@ -1,6 +1,5 @@
 #include "search_select.hpp"
 
-
 #include "../include/raygui.h"
 #include <raylib.h>
 
@@ -21,12 +20,13 @@ void SearchSelect::before_draw() {
     if (activeIndex >= filtCnt) activeIndex = -1;
 }
 
-void SearchSelect::draw(int index, float y) {
+void SearchSelect::draw(int index, float y, float init_pos) {
     float spacing = 20;
     float boxWidth = 180;
     float listHeight = 100;
 
-    float x = index * (boxWidth + spacing);
+    float x = index * (boxWidth + spacing) + init_pos;
+	GuiLabel((Rectangle){ x, y - 24, boxWidth, 24 }, title.c_str());
 
     Rectangle searchRect = { x, y, boxWidth, 24 };
     if (GuiTextBox(searchRect, search.data(), sizeof(search), editSearch))
@@ -42,15 +42,14 @@ void SearchSelect::draw(int index, float y) {
                   &scrollIndex, &activeIndex, &focusIndex);
 
     if (activeIndex != prevActive && activeIndex >= 0) {
-        selectedOrig = filtIdx[activeIndex];
-        search = options.at(selectedOrig);
+        *selectedOrig = filtIdx[activeIndex];
+        search = options.at(*selectedOrig);
     }
 
     GuiLabel((Rectangle){ x, y + 140, boxWidth, 24 },
-             (selectedOrig >= 0)
-               ? TextFormat("Selected: %s", options[selectedOrig].c_str())
+             (*selectedOrig >= 0)
+               ? TextFormat("Selected: %s", options[*selectedOrig].c_str())
                : "Selected: <none>");
 }
-
 
 }

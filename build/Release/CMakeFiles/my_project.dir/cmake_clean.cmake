@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o.d"
   "CMakeFiles/my_project.dir/src/ui/app.cpp.o"
   "CMakeFiles/my_project.dir/src/ui/app.cpp.o.d"
+  "CMakeFiles/my_project.dir/src/ui/input.cpp.o"
+  "CMakeFiles/my_project.dir/src/ui/input.cpp.o.d"
   "CMakeFiles/my_project.dir/src/ui/search_select.cpp.o"
   "CMakeFiles/my_project.dir/src/ui/search_select.cpp.o.d"
   "my_project"

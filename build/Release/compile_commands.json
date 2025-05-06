@@ -43,6 +43,12 @@
 },
 {
   "directory": "/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release",
+  "command": "/usr/bin/c++  -isystem /home/alderson/.conan2/p/eigen3d88c0279cc26/p/include/eigen3 -isystem /home/alderson/.conan2/p/fast-10f1bd0aed5fe/p/include -isystem /home/alderson/.conan2/p/fast-10f1bd0aed5fe/p/include/fast-cpp-csv-parser -isystem /home/alderson/.conan2/p/b/raylia7d91333bd07f/p/include -isystem /usr/local/cuda/targets/x86_64-linux/include -m64 -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/my_project.dir/src/ui/input.cpp.o -c /home/alderson/Projects/Mine/real-estate-price-prediction/src/ui/input.cpp",
+  "file": "/home/alderson/Projects/Mine/real-estate-price-prediction/src/ui/input.cpp",
+  "output": "CMakeFiles/my_project.dir/src/ui/input.cpp.o"
+},
+{
+  "directory": "/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release",
   "command": "/usr/bin/c++  -isystem /home/alderson/.conan2/p/eigen3d88c0279cc26/p/include/eigen3 -isystem /home/alderson/.conan2/p/fast-10f1bd0aed5fe/p/include -isystem /home/alderson/.conan2/p/fast-10f1bd0aed5fe/p/include/fast-cpp-csv-parser -isystem /home/alderson/.conan2/p/b/raylia7d91333bd07f/p/include -isystem /usr/local/cuda/targets/x86_64-linux/include -m64 -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/my_project.dir/src/ui/search_select.cpp.o -c /home/alderson/Projects/Mine/real-estate-price-prediction/src/ui/search_select.cpp",
   "file": "/home/alderson/Projects/Mine/real-estate-price-prediction/src/ui/search_select.cpp",
   "output": "CMakeFiles/my_project.dir/src/ui/search_select.cpp.o"

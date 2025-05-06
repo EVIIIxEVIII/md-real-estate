@@ -297,6 +297,30 @@ src/ui/app.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/ui/app.cpp.s
 .PHONY : src/ui/app.cpp.s
 
+src/ui/input.o: src/ui/input.cpp.o
+.PHONY : src/ui/input.o
+
+# target to build an object file
+src/ui/input.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/ui/input.cpp.o
+.PHONY : src/ui/input.cpp.o
+
+src/ui/input.i: src/ui/input.cpp.i
+.PHONY : src/ui/input.i
+
+# target to preprocess a source file
+src/ui/input.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/ui/input.cpp.i
+.PHONY : src/ui/input.cpp.i
+
+src/ui/input.s: src/ui/input.cpp.s
+.PHONY : src/ui/input.s
+
+# target to generate assembly for a file
+src/ui/input.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/ui/input.cpp.s
+.PHONY : src/ui/input.cpp.s
+
 src/ui/search_select.o: src/ui/search_select.cpp.o
 .PHONY : src/ui/search_select.o
 
@@ -351,6 +375,9 @@ help:
 	@echo "... src/ui/app.o"
 	@echo "... src/ui/app.i"
 	@echo "... src/ui/app.s"
+	@echo "... src/ui/input.o"
+	@echo "... src/ui/input.i"
+	@echo "... src/ui/input.s"
 	@echo "... src/ui/search_select.o"
 	@echo "... src/ui/search_select.i"
 	@echo "... src/ui/search_select.s"
