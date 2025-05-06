@@ -1,1 +1,0 @@
-. "/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/generators/deactivate_conanrunenv-release-x86_64.sh"

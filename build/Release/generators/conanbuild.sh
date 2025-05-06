@@ -1,1 +1,0 @@
-. "/home/alderson/Projects/Mine/real-estate-price-prediction/build/Release/generators/conanbuildenv-release-x86_64.sh"
