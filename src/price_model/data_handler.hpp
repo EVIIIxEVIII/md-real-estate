@@ -36,7 +36,7 @@ class DataHandler {
 
         static constexpr std::size_t F = feature.size();
 
-        SplitData get_split_data(float training_ratio, bool add_intercept);
+        SplitData get_split_data(float training_ratio);
 
     private:
         LoadedData<F> loaded_data;

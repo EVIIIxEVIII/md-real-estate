@@ -2,7 +2,7 @@
 
 namespace price_model {
 
-SplitData DataHandler::get_split_data(float training_ratio, bool add_intercept)
+SplitData DataHandler::get_split_data(float training_ratio)
 {
 	const std::size_t total_size = loaded_data.X_rows.size();
 	const std::size_t train_size = std::round(total_size * training_ratio);
@@ -10,16 +10,13 @@ SplitData DataHandler::get_split_data(float training_ratio, bool add_intercept)
 
 	assert(train_size && "empty or too small CSV?");
 
-	const std::size_t num_features = F + (add_intercept ? 1 : 0);
+	const std::size_t num_features = F;
 
 	Eigen::MatrixXd X_train(train_size, num_features);
 	Eigen::VectorXd Y_train(train_size);
 	for (std::size_t i = 0; i < train_size; ++i) {
-		if (add_intercept)
-			X_train(i, 0) = 1.0;
-
 		for (std::size_t j = 0; j < F; ++j)
-			X_train(i, j + (add_intercept ? 1 : 0)) = loaded_data.X_rows[i][j];
+			X_train(i, j) = loaded_data.X_rows[i][j];
 
 		Y_train(i) = loaded_data.y_vals[i];
 	}
@@ -29,11 +26,8 @@ SplitData DataHandler::get_split_data(float training_ratio, bool add_intercept)
 	for (std::size_t i = 0; i < test_size; ++i) {
 		const std::size_t data_idx = train_size + i;
 
-		if (add_intercept)
-			X_test(i, 0) = 1.0;
-
 		for (std::size_t j = 0; j < F; ++j)
-			X_test(i, j + (add_intercept ? 1 : 0)) = loaded_data.X_rows[data_idx][j];
+			X_test(i, j) = loaded_data.X_rows[data_idx][j];
 
 		Y_test(i) = loaded_data.y_vals[data_idx];
 	}

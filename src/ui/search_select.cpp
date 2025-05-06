@@ -1,6 +1,7 @@
 #include "search_select.hpp"
-#include "../include/raygui.h"
 
+
+#include "../include/raygui.h"
 #include <raylib.h>
 
 namespace ui {
@@ -25,7 +26,7 @@ void SearchSelect::draw() {
     if (GuiTextBox(searchRect, search.data(), sizeof(search), editSearch))
         editSearch = !editSearch;
 
-    Rectangle listRect = { 16, 48, 180, 140 };
+    Rectangle listRect = { 16, 48, 180, 100 };
     std::vector<const char*> view;
     for (int i = 0; i < filtCnt; ++i)
         view.push_back(options[filtIdx[i]].c_str());
@@ -44,7 +45,5 @@ void SearchSelect::draw() {
                ? TextFormat("Selected: %s", options[selectedOrig].c_str())
                : "Selected: <none>");
 }
-
-
 
 }

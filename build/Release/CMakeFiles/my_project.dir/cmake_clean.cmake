@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/my_project.dir/src/price_model/data_handler.cpp.o.d"
   "CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.o"
   "CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.o.d"
+  "CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted_elastic_net.cpp.o"
+  "CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted_elastic_net.cpp.o.d"
   "CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o"
   "CMakeFiles/my_project.dir/src/price_model/price_model_ols.cpp.o.d"
   "CMakeFiles/my_project.dir/src/price_model/regression_tree.cpp.o"

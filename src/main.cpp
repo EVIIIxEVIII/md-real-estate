@@ -8,11 +8,11 @@
 //int main()
 //{
 //    auto data_handler = std::make_shared<price_model::DataHandler>("./data/datasets/non_encoded_df.csv");
-//    price_model::SplitData split_data = data_handler->get_split_data(.75, false);
+//    price_model::SplitData split_data = data_handler->get_split_data(.75);
 //
 //    price_model::GradientBoostConfig gradient_boost_config{
-//        .n_estimators = 2000,
-//        .learning_rate = 0.005,
+//        .n_estimators = 100,
+//        .learning_rate = 0.1,
 //        .max_depth = 12,
 //        .min_dataset_size = 50,
 //    };
@@ -30,6 +30,7 @@
 #include <raylib.h>
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 int main(void)
 {

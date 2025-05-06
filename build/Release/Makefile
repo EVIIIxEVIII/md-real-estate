@@ -201,6 +201,30 @@ src/price_model/price_model_gradient_boosted.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted.cpp.s
 .PHONY : src/price_model/price_model_gradient_boosted.cpp.s
 
+src/price_model/price_model_gradient_boosted_elastic_net.o: src/price_model/price_model_gradient_boosted_elastic_net.cpp.o
+.PHONY : src/price_model/price_model_gradient_boosted_elastic_net.o
+
+# target to build an object file
+src/price_model/price_model_gradient_boosted_elastic_net.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted_elastic_net.cpp.o
+.PHONY : src/price_model/price_model_gradient_boosted_elastic_net.cpp.o
+
+src/price_model/price_model_gradient_boosted_elastic_net.i: src/price_model/price_model_gradient_boosted_elastic_net.cpp.i
+.PHONY : src/price_model/price_model_gradient_boosted_elastic_net.i
+
+# target to preprocess a source file
+src/price_model/price_model_gradient_boosted_elastic_net.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted_elastic_net.cpp.i
+.PHONY : src/price_model/price_model_gradient_boosted_elastic_net.cpp.i
+
+src/price_model/price_model_gradient_boosted_elastic_net.s: src/price_model/price_model_gradient_boosted_elastic_net.cpp.s
+.PHONY : src/price_model/price_model_gradient_boosted_elastic_net.s
+
+# target to generate assembly for a file
+src/price_model/price_model_gradient_boosted_elastic_net.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_project.dir/build.make CMakeFiles/my_project.dir/src/price_model/price_model_gradient_boosted_elastic_net.cpp.s
+.PHONY : src/price_model/price_model_gradient_boosted_elastic_net.cpp.s
+
 src/price_model/price_model_ols.o: src/price_model/price_model_ols.cpp.o
 .PHONY : src/price_model/price_model_ols.o
 
@@ -315,6 +339,9 @@ help:
 	@echo "... src/price_model/price_model_gradient_boosted.o"
 	@echo "... src/price_model/price_model_gradient_boosted.i"
 	@echo "... src/price_model/price_model_gradient_boosted.s"
+	@echo "... src/price_model/price_model_gradient_boosted_elastic_net.o"
+	@echo "... src/price_model/price_model_gradient_boosted_elastic_net.i"
+	@echo "... src/price_model/price_model_gradient_boosted_elastic_net.s"
 	@echo "... src/price_model/price_model_ols.o"
 	@echo "... src/price_model/price_model_ols.i"
 	@echo "... src/price_model/price_model_ols.s"
