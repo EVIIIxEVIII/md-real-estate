@@ -5,19 +5,19 @@ df = pd.read_csv("./raw_data.csv")
 
 # Animale,Autorul anunțului,Balcon/ lojie,Compartimentare,Copii,Dezvoltator,Etaj,Fond locativ,Grup sanitar,Inălțimea tavanelor,Living,Loc de parcare,Număr de camere,Număr de etaje,Starea apartamentului,Suprafață bucătărie,Suprafață locativă,Suprafață totală,Tip clădire,price
 def normalize_units(x):
-	if isinstance(x, str):
-		parts = x.strip().split()
-		if len(parts) == 2:
-			value, unit = parts
-			try:
-				value = float(value)
-				if unit.lower() in ['cm', 'centimetri']:
-					return value / 100
-				elif unit.lower() in ['m', 'metri']:
-					return value
-			except ValueError:
-				return None
-	return None
+    if isinstance(x, str):
+        parts = x.strip().split()
+        if len(parts) == 2:
+            value, unit = parts
+            try:
+                value = float(value)
+                if unit.lower() in ['cm', 'centimetri']:
+                    return value / 100
+                elif unit.lower() in ['m', 'metri']:
+                    return value
+            except ValueError:
+                return None
+    return None
 
 number_of_rooms_types = {
     "O cameră": 1,
@@ -29,26 +29,26 @@ number_of_rooms_types = {
 }
 
 fields_map = {
-	"Animale": "animals",
-	"Autorul anunțului": "author_of_the_announcement",
-	"Balcon/ lojie": "balcony_loggia",
-	"Compartimentare": "compartmentalization",
-	"Copii": "children",
-	"Dezvoltator": "developer",
-	"Etaj": "floor",
-	"Fond locativ": "housing_fund",
-	"Grup sanitar": "bathroom",
-	"Inălțimea tavanelor": "ceiling_height",
-	"Living": "living_room",
-	"Loc de parcare": "parking_spot",
-	"Număr de camere": "number_of_rooms",
-	"Număr de etaje": "number_of_floors",
-	"Starea apartamentului": "apartment_condition",
-	"Suprafață bucătărie": "kitchen_area",
-	"Suprafață locativă": "living_area",
-	"Suprafață totală": "total_area",
-	"Tip clădire": "building_type",
-	"price": "price"
+    "Animale": "animals",
+    "Autorul anunțului": "author_of_the_announcement",
+    "Balcon/ lojie": "balcony_loggia",
+    "Compartimentare": "compartmentalization",
+    "Copii": "children",
+    "Dezvoltator": "developer",
+    "Etaj": "floor",
+    "Fond locativ": "housing_fund",
+    "Grup sanitar": "bathroom",
+    "Inălțimea tavanelor": "ceiling_height",
+    "Living": "living_room",
+    "Loc de parcare": "parking_spot",
+    "Număr de camere": "number_of_rooms",
+    "Număr de etaje": "number_of_floors",
+    "Starea apartamentului": "apartment_condition",
+    "Suprafață bucătărie": "kitchen_area",
+    "Suprafață locativă": "living_area",
+    "Suprafață totală": "total_area",
+    "Tip clădire": "building_type",
+    "price": "price"
 }
 
 df = df.drop_duplicates()
@@ -102,10 +102,21 @@ df_main_fields = df[[
     'compartmentalization',
 ]]
 
+mappings = {}
 df_non_encoded = df_main_fields.copy()
+
 for col in df_non_encoded.select_dtypes(include='object').columns:
-	df_non_encoded[col] = df_non_encoded[col].astype('category').cat.codes
-df_non_encoded.to_csv('./datasets/non_encoded_df.csv', index=False);
+    cat = df_non_encoded[col] = df_non_encoded[col].astype('category')
+    df_non_encoded[col] = cat.cat.codes
+    mappings[col] = dict(enumerate(cat.cat.categories))
+
+for key, val in mappings.items():
+    print("---------------")
+    print("key: ", key)
+    print(val.values())
+    print("---------------")
+
+df_non_encoded.to_csv('./datasets/non_encoded_df.csv', index=False)
 
 df_encoded = pd.get_dummies(
     df_main_fields,
@@ -113,13 +124,13 @@ df_encoded = pd.get_dummies(
     drop_first=True
 ).astype(int)
 
-df_encoded.to_csv('./datasets/encoded_df.csv', index=False);
+df_encoded.to_csv('./datasets/encoded_df.csv', index=False)
 
 columns = [col for col in df_non_encoded.columns if col != "price"]
 string = ""
 for i, col in enumerate(columns):
     end = "," if i < len(columns) - 1 else ""
-    string += f'"{col}"{end}';
+    string += f'"{col}"{end}'
 
 print(string)
 print("\n\n\n")
@@ -128,6 +139,7 @@ columns = [col for col in df_encoded.columns if col != "price"]
 string = ""
 for i, col in enumerate(columns):
     end = "," if i < len(columns) - 1 else ""
-    string += f'"{col}"{end}';
+    string += f'"{col}"{end}'
 
 print(string)
+

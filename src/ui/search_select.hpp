@@ -18,7 +18,7 @@ public:
     };
 
     void before_draw();
-    void draw();
+    void draw(int index, float y);
     static bool StrContains(const char *s, const char *sub);
 
 private:

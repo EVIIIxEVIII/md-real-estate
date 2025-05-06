@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <stdint.h>
+#include "price_model_ols.hpp"
 #include "regression_tree.hpp"
 
 namespace price_model {
@@ -32,7 +33,7 @@ class ENGradientBoost {
 
     private:
         struct Model {
-            double F_0;
+            std::unique_ptr<Ols> F_0;
             std::vector<std::unique_ptr<RegressionTree>> regression_trees;
         };
 

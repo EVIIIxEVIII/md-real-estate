@@ -51,7 +51,7 @@ Eigen::VectorXd ENGradientBoost::predict(const Eigen::MatrixXd& X) {
     const int trees_num = model.regression_trees.size();
     const double learning_rate = config.learning_rate;
 
-    Eigen::VectorXd y_pred = Eigen::VectorXd::Constant(X.rows(), model.F_0);
+    Eigen::VectorXd y_pred = model.F_0->predict(X);
 
     for (const auto& tree : model.regression_trees) {
 		y_pred += learning_rate * tree->predict(X);
@@ -65,9 +65,8 @@ void ENGradientBoost::train(const Eigen::MatrixXd& X, const Eigen::VectorXd& y) 
     assert((y.size() == X.rows()) && "The number of rows for X and y do not match!");
 
     auto ols = std::make_unique<Ols>();
-    ols->enlr(X, y, 2.0, 3.0);
+    ols->enlr(X, y, 2., 3.);
 
-    double F_0 = y.mean();
     Eigen::VectorXd predictions = ols->predict(X);
     Eigen::VectorXd residues = y - predictions;
 
@@ -93,7 +92,7 @@ void ENGradientBoost::train(const Eigen::MatrixXd& X, const Eigen::VectorXd& y) 
         regression_trees.push_back(std::move(tree));
     }
 
-    model = { F_0, std::move(regression_trees) };
+    model = { std::move(ols), std::move(regression_trees) };
 }
 
 }

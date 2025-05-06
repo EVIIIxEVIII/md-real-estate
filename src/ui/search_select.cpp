@@ -21,17 +21,23 @@ void SearchSelect::before_draw() {
     if (activeIndex >= filtCnt) activeIndex = -1;
 }
 
-void SearchSelect::draw() {
-    Rectangle searchRect = { 16, 16, 180, 24 };
+void SearchSelect::draw(int index, float y) {
+    float spacing = 20;
+    float boxWidth = 180;
+    float listHeight = 100;
+
+    float x = index * (boxWidth + spacing);
+
+    Rectangle searchRect = { x, y, boxWidth, 24 };
     if (GuiTextBox(searchRect, search.data(), sizeof(search), editSearch))
         editSearch = !editSearch;
 
-    Rectangle listRect = { 16, 48, 180, 100 };
+    Rectangle listRect = { x, y + 32, boxWidth, listHeight };
     std::vector<const char*> view;
     for (int i = 0; i < filtCnt; ++i)
         view.push_back(options[filtIdx[i]].c_str());
 
-	int prevActive = activeIndex;
+    int prevActive = activeIndex;
     GuiListViewEx(listRect, view.data(), filtCnt,
                   &scrollIndex, &activeIndex, &focusIndex);
 
@@ -40,10 +46,11 @@ void SearchSelect::draw() {
         search = options.at(selectedOrig);
     }
 
-    GuiLabel((Rectangle){ 220, 16, 180, 24 },
+    GuiLabel((Rectangle){ x, y + 140, boxWidth, 24 },
              (selectedOrig >= 0)
                ? TextFormat("Selected: %s", options[selectedOrig].c_str())
                : "Selected: <none>");
 }
+
 
 }

@@ -48,14 +48,13 @@ void Ols::enlr(const Eigen::MatrixXd& X, const Eigen::VectorXd& y, double lambda
     model = beta;
 }
 
-inline void Ols::ols(const Eigen::MatrixXd& X, const Eigen::VectorXd& y)
+void Ols::ols(const Eigen::MatrixXd& X, const Eigen::VectorXd& y)
 {
     const Eigen::MatrixXd X_int = addIntercept(X);
 	const double lambda = 3.0;
 
 	const std::size_t n_features = X.cols();
 	Eigen::MatrixXd I = Eigen::MatrixXd::Identity(n_features, n_features);
-	I(0, 0) = 0.0;
 
 	model = (X_int.transpose() * X_int + lambda * I).ldlt().solve(X_int.transpose() * y);
 }

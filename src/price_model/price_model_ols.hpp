@@ -10,7 +10,7 @@ class Ols {
         void evaluate_model(const Eigen::MatrixXd& x_test, const Eigen::VectorXd& y_test);
         Eigen::VectorXd predict(const Eigen::MatrixXd& X);
         void enlr(const Eigen::MatrixXd& X, const Eigen::VectorXd& y, double lambda1, double lambda2);
-        inline void ols(const Eigen::MatrixXd& X, const Eigen::VectorXd& y);
+        void ols(const Eigen::MatrixXd& X, const Eigen::VectorXd& y);
 
     private:
         Eigen::VectorXd model;
