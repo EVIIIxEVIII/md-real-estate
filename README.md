@@ -5,7 +5,7 @@ Data was collected from 999.md. The model used is a Gradient Boosted Trees algor
 
 
 # Comparison with existing models:
-- my gradient boosted forest implementation:
+- my extreme gradient boosted forest implementation:
 ```
 max depth = 12
 estimators = 1000
