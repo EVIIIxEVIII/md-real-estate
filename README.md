@@ -7,16 +7,18 @@ Data was collected from 999.md. The model used is a Gradient Boosted Trees algor
 # Comparison with existing models:
 - my extreme gradient boosted forest implementation:
 ```
-max depth = 12
-estimators = 1000
-learning rate = 0.01
-minimum dataset size = 50
+max depth = 6
+estimators = 350
+eta = 0.3
+lambda = 5.0
+gamma = 0.0
 ```
 Result:
-MAE  = 17016.5 | 
-MSE  = 1.08053e+09 | 
-RMSE = 32871.3 | 
-R^2  = 0.792129
+MAE   = 17148.7 | 
+MSE   = 9.346e+08 | 
+RMSE  = 30571.2 | 
+R^2   = 0.80469 | 
+RMSLE = 0.215884 
 
 ****
 - xgboost python library:
