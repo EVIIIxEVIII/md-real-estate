@@ -2,20 +2,9 @@
 
 #include <memory>
 #include <stdint.h>
-#include "data_handler.hpp"
 #include "regression_tree.hpp"
 
 namespace price_model {
-
-struct Node {
-    uint16_t fid;
-    float thr;
-
-    uint32_t left;
-    uint32_t right;
-
-    float value;
-};
 
 struct GradientBoostConfig {
     int n_estimators;

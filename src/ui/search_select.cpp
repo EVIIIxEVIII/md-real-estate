@@ -22,13 +22,13 @@ void SearchSelect::before_draw() {
 
 void SearchSelect::draw(int index, float y, float init_pos) {
     float spacing = 20;
-    float boxWidth = 180;
+    float boxWidth = 250;
     float listHeight = 100;
 
     float x = index * (boxWidth + spacing) + init_pos;
-	GuiLabel((Rectangle){ x, y - 24, boxWidth, 24 }, title.c_str());
+	GuiLabel((Rectangle){ x, y - 32, boxWidth, 32 }, title.c_str());
 
-    Rectangle searchRect = { x, y, boxWidth, 24 };
+    Rectangle searchRect = { x, y, boxWidth, 32 };
     if (GuiTextBox(searchRect, search.data(), sizeof(search), editSearch))
         editSearch = !editSearch;
 
@@ -46,7 +46,7 @@ void SearchSelect::draw(int index, float y, float init_pos) {
         search = options.at(*selectedOrig);
     }
 
-    GuiLabel((Rectangle){ x, y + 140, boxWidth, 24 },
+    GuiLabel((Rectangle){ x, y + 140, boxWidth, 32 },
              (*selectedOrig >= 0)
                ? TextFormat("Selected: %s", options[*selectedOrig].c_str())
                : "Selected: <none>");
