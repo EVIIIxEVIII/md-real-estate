@@ -6,20 +6,32 @@
 #include <Eigen/Dense>
 #include <cmath>
 #include <raylib.h>
-#include "./include/raygui.h"
+#include <fstream>
+#include "include/raygui.h"
 
 #include "./price_model/data_handler.hpp"
 #include "./price_model/price_model_xgboost.hpp"
 
+void save_vector_to_csv(const Eigen::VectorXd& vec, const std::string& filename) {
+	std::ofstream file(filename);
+	if (!file.is_open()) return;
+
+	file << "Prediction" << "\n";
+	for (int i = 0; i < vec.size(); ++i) {
+		file << vec[i] << "\n";
+	}
+
+	file.close();
+}
 
 int main()
 {
     auto data_handler = std::make_shared<price_model::DataHandler>("./data/kaggle-test/train_filtered.csv");
     //auto data_handler = std::make_shared<price_model::DataHandler>("./data/datasets/non_encoded_df.csv");
-    price_model::SplitData split_data = data_handler->get_split_data(.85);
+    price_model::SplitData split_data = data_handler->get_split_data(.75);
 
     price_model::XGBoostConfig gradient_boost_config{
-        .n_estimators = 350,
+        .n_estimators = 300,
         .eta = 0.3,
         .tree_config = price_model::XGBoostConfig::XGBoostTreeConfig {
             .lambda = 5.0,
@@ -31,6 +43,11 @@ int main()
     auto xgboost_price_model = std::make_unique<price_model::XGBoost>(gradient_boost_config);
     xgboost_price_model->train(split_data.X_train, split_data.Y_train);
     xgboost_price_model->evaluate_model(split_data.x_test, split_data.y_test);
+
+    //auto test_data = std::make_shared<price_model::DataHandler>("./data/kaggle-test/test_filtered.csv");
+    //auto test_data_mat = test_data->get_split_data(1.).X_train;
+    //Eigen::VectorXd predictions = xgboost_price_model->predict(test_data_mat);
+    //save_vector_to_csv(predictions, "./data/kaggle-test/predictions.csv");
 }
 
 //#define RAYGUI_IMPLEMENTATION

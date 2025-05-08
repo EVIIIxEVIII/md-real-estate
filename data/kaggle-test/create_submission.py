@@ -8,7 +8,7 @@ print(df_pred.head(11))
 
 df_submission = pd.DataFrame({
     "Id": df_test["Id"],
-    "SalePrice": df_pred["SalePrice"]
+    "SalePrice": df_pred["Prediction"]
 })
 
 df_submission.to_csv("submission.csv", index=False)
