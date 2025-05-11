@@ -91,7 +91,7 @@ void EstimationView::draw() {
         _prediction = _model->predict(x);
     }
 
-    GuiLabel({ center(300, _screen_width), 850, 300, 24 }, TextFormat("Estimated fair price: %.2f", _prediction(0)));
+    GuiLabel({ center(300, _screen_width), 750, 300, 24 }, TextFormat("Estimated fair price: %.2f", _prediction(0)));
 }
 
 

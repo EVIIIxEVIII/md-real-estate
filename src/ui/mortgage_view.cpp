@@ -78,6 +78,30 @@ void MortgageView::draw()
         _offer = (std::strlen(_offer_price)) ? calc(to_double(_offer_price)) : Metrics{};
     }
 
+    auto pick_colour = [](const std::string& key, double v)->Color
+    {
+        const Color OK  = GREEN;
+        const Color MID = YELLOW;
+        const Color BAD = RED;
+
+        if(key=="FrontDTI")
+            return (v<=25.0)?OK : (v<=28.0?MID:BAD);
+
+        if(key=="BackDTI")
+            return (v<=33.0)?OK : (v<=36.0?MID:BAD);
+
+        if(key=="LTV")
+            return (v<=80.0)?OK : (v<=90.0?MID:BAD);
+
+        if(key=="PITIratio")
+            return (v<=30.0)?OK : (v<=40.0?MID:BAD);
+
+        if(key=="Delta%")
+            return (std::fabs(v)<=10.0) ? OK : (std::fabs(v) <= 15.0 ? MID:BAD);
+
+        return LIGHTGRAY;
+    };
+
     const float table_w   = 640.f;
 	const float col_w[3]  = { 240.f, 190.f, 190.f };
 	const float row_h     = 24.f;
@@ -87,26 +111,36 @@ void MortgageView::draw()
 	GuiGroupBox({ x0, y0, table_w, 7*row_h + 40 }, "Results");
 	y0 += 20;
 
-	auto row = [&](const char *label,
-	               auto fair_v, auto off_v, int r)
-	{
-		GuiLabel({ x0+10,                 y0+r*row_h, col_w[0]-20, row_h },
-		         TextFormat("%s", label));
-		GuiLabel({ x0+col_w[0],           y0+r*row_h, col_w[1],    row_h },
-		         TextFormat("%.2f", fair_v));
-		GuiLabel({ x0+col_w[0]+col_w[1],  y0+r*row_h, col_w[2],    row_h },
-		         TextFormat("%.2f", off_v));
-	};
+    auto row = [&](const char *label,
+                   double fair_v, double off_v,
+                   int r, const std::string& key = "")
+    {
+        GuiLabel({ x0+10, y0+r*row_h, col_w[0]-20, row_h }, TextFormat("%s", label));
+        GuiLabel({ x0+col_w[0], y0+r*row_h, col_w[1], row_h }, TextFormat("%.2f", fair_v));
+
+        int prev = GuiGetStyle(LABEL, TEXT_COLOR_NORMAL);
+        Color c  = key.empty()?LIGHTGRAY:pick_colour(key, off_v);
+        GuiSetStyle(LABEL, TEXT_COLOR_NORMAL, ColorToInt(c));
+
+        GuiLabel({ x0+col_w[0]+col_w[1],  y0+r*row_h, col_w[2],  row_h }, TextFormat("%.2f", off_v));
+        GuiSetStyle(LABEL, TEXT_COLOR_NORMAL, prev);
+    };
 
 	GuiLabel({ x0+col_w[0],          y0-20, col_w[1], row_h }, "Fair-Price");
 	GuiLabel({ x0+col_w[0]+col_w[1], y0-20, col_w[2], row_h }, "Offer");
 
-	row("Monthly P&I ($)"     , _fair.pmt,       _offer.pmt , 0);
-	row("PITI ($)"            , _fair.piti,      _offer.piti, 1);
-	row("Front-end DTI (%)"   , _fair.front*100, _offer.front*100, 2);
-	row("Back-end DTI (%)"    , _fair.back*100,  _offer.back*100 , 3);
-	row("LTV (%)"             , _fair.ltv*100,   _offer.ltv*100  , 4);
-	row("Offer - Fair ($)"    , 0.,              to_double(_offer_price)-_fair_price, 5);
+    row("Monthly P&I ($)" , _fair.pmt,  _offer.pmt, 0);
+
+    double piti_ratio = (_offer.piti>0 && to_double(_income)>0) ? _offer.piti / to_double(_income) * 100.0 : 0.0;
+
+    row("PITI          ($)", _fair.piti, _offer.piti, 1, "PITI");
+    row("PITI ratio    (%)", _fair.piti, _offer.piti * 100. / to_double(_income), 2, "PITIratio");
+    row("Front-end DTI (%)", _fair.front*100, _offer.front*100, 3, "FrontDTI");
+    row("Back-end DTI  (%)", _fair.back*100,  _offer.back*100 , 4, "BackDTI");
+    row("LTV (%)"          , _fair.ltv*100,   _offer.ltv*100  , 5, "LTV");
+
+    double delta_pct = (_fair_price>0)? (to_double(_offer_price)-_fair_price)/_fair_price*100.0 : 0.0;
+    row("Offer - Fair (%)" ,0.0, (to_double(_offer_price) - _fair_price) * 100. / _fair_price, 6,"Delta%");
 }
 
 }

@@ -28,7 +28,7 @@ private:
 
     bool editSearch   = false;
     int  scrollIndex  = 0;
-    int  activeIndex;
+    int  activeIndex  = -1;
     int  focusIndex   = -1;
     int* selectedOrig;
 

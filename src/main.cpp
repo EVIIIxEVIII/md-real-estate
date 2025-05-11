@@ -51,7 +51,7 @@ std::unique_ptr<price_model::XGBoost> train_model() {
 
 int main(void)
 {
-    auto estimation_view = std::make_unique<ui::EstimationView>( WIDTH);
+    auto estimation_view    = std::make_unique<ui::EstimationView>( WIDTH);
     auto mortgage_view		= std::make_unique<ui::MortgageView>(WIDTH);
 
 	InitWindow(WIDTH, HEIGHT, "raygui — select with search");
