@@ -12,7 +12,7 @@ Eigen::VectorXd XGBoostTree:: predict(const Eigen::MatrixXd& X) const
     Eigen::VectorXd prediction(X.rows());
 
     for (int i = 0; i < X.rows(); i++) {
-        Node* current_node = this->root.get();
+        Node* current_node = this->_root.get();
         while (!current_node->is_leaf) {
             if (X(i, current_node->feature_index) < current_node->threshold) {
                 current_node = current_node->left.get();
@@ -31,28 +31,28 @@ void XGBoostTree::train(
     const Eigen::MatrixXd& X,
     const Eigen::VectorXd& y
 ) {
-    fit(X, y, this->root, 0);
-    prune(this->root);
+    fit(X, y, this->_root, 0);
+    prune(this->_root);
 }
 
 bool XGBoostTree::prune(std::unique_ptr<Node>& node)
 {
-    if (!node || node->is_leaf) return true;   // already a leaf
+    if (!node || node->is_leaf) return true;
 
     bool left_is_leaf  = prune(node->left);
     bool right_is_leaf = prune(node->right);
 
-    if (left_is_leaf && right_is_leaf && node->gain <= config.gamma) {
+    if (left_is_leaf && right_is_leaf && node->gain <= _config.gamma) {
         int    nL = node->left->count;
         int    nR = node->right->count;
         double wL = node->left->value;
         double wR = node->right->value;
 
-        double sumL = wL * (nL + config.lambda);
-        double sumR = wR * (nR + config.lambda);
+        double sumL = wL * (nL + _config.lambda);
+        double sumR = wR * (nR + _config.lambda);
 
         int    n    = nL + nR;
-        double w    = (sumL + sumR) / (n + config.lambda);
+        double w    = (sumL + sumR) / (n + _config.lambda);
 
         node = std::make_unique<Node>(Node{
             .value   = w,
@@ -66,7 +66,7 @@ bool XGBoostTree::prune(std::unique_ptr<Node>& node)
 }
 
 double XGBoostTree::compute_value(const Eigen::VectorXd& y) {
-    return y.sum() / (y.size() + config.lambda);
+    return y.sum() / (y.size() + _config.lambda);
 }
 
 std::unique_ptr<XGBoostTree::SplitData> XGBoostTree::split_data(
@@ -117,7 +117,7 @@ void XGBoostTree::fit(
     std::unique_ptr<Node>& node_ptr,
     int depth
 ) {
-    if (depth >= config.max_depth) {
+    if (depth >= _config.max_depth) {
         node_ptr = std::make_unique<Node>(Node{
             .value = compute_value(y),
             .count = static_cast<int>(y.size()),
@@ -140,9 +140,9 @@ void XGBoostTree::fit(
         if (candidate.gain > best_candidate.gain) best_candidate = std::move(candidate);
     }
 
-    const double leaf_gain = (y.sum() * y.sum()) / (y.size() + config.lambda);
+    const double leaf_gain = (y.sum() * y.sum()) / (y.size() + _config.lambda);
     if (best_candidate.feature_index == -1
-        || best_candidate.gain <= config.gamma
+        || best_candidate.gain <= _config.gamma
     ) {
         node_ptr = std::make_unique<Node>(Node{
             .value   = compute_value(y),
@@ -179,7 +179,6 @@ void XGBoostTree::fit(
     fit(data->X_right, data->y_right, node_ptr->right, depth+1);
 }
 
-
 XGBoostTree::TreeCandidate XGBoostTree::find_max_gain_split(
     const Eigen::VectorXd& feature,
     const Eigen::VectorXd& y
@@ -198,7 +197,7 @@ XGBoostTree::TreeCandidate XGBoostTree::find_max_gain_split(
     double best_gain = -std::numeric_limits<double>::infinity();
     double best_threshold = 0.0;
 
-    double parent_gain = (y.sum() * y.sum()) / (y.size() + config.lambda);
+    double parent_gain = (y.sum() * y.sum()) / (y.size() + _config.lambda);
 
     for (int i = 1; i < n; i++) {
         int index = indices[i - 1];
@@ -212,8 +211,8 @@ XGBoostTree::TreeCandidate XGBoostTree::find_max_gain_split(
         double right_sum = total_sum - left_sum;
         int right_count = n - left_count;
 
-        double gain_left = (left_sum * left_sum) / (left_count + config.lambda);
-        double gain_right = (right_sum * right_sum) / (right_count + config.lambda);
+        double gain_left = (left_sum * left_sum) / (left_count + _config.lambda);
+        double gain_right = (right_sum * right_sum) / (right_count + _config.lambda);
 
         double total_gain = gain_left + gain_right - parent_gain;
 
@@ -233,5 +232,48 @@ XGBoostTree::TreeCandidate XGBoostTree::find_max_gain_split(
     };
 }
 
+void XGBoostTree::serialize_node(std::ostream& out, const Node* node) const {
+    bool exists = (node != nullptr);
+    out.write(reinterpret_cast<const char*>(&exists), sizeof(bool));
+    if (!exists) return;
+
+    out.write(reinterpret_cast<const char*>(&node->feature_index), sizeof(int));
+	out.write(reinterpret_cast<const char*>(&node->threshold), sizeof(double));
+	out.write(reinterpret_cast<const char*>(&node->value), sizeof(double));
+	out.write(reinterpret_cast<const char*>(&node->gain), sizeof(double));
+	out.write(reinterpret_cast<const char*>(&node->count), sizeof(int));
+	out.write(reinterpret_cast<const char*>(&node->is_leaf), sizeof(bool));
+
+	serialize_node(out, node->left.get());
+	serialize_node(out, node->right.get());
+}
+
+std::unique_ptr<XGBoostTree::Node> XGBoostTree::deserialize_node(std::istream& in) const {
+    bool exists;
+	in.read(reinterpret_cast<char*>(&exists), sizeof(bool));
+	if (!exists) return nullptr;
+
+	auto node = std::make_unique<Node>();
+
+	in.read(reinterpret_cast<char*>(&node->feature_index), sizeof(int));
+	in.read(reinterpret_cast<char*>(&node->threshold), sizeof(double));
+	in.read(reinterpret_cast<char*>(&node->value), sizeof(double));
+	in.read(reinterpret_cast<char*>(&node->gain), sizeof(double));
+	in.read(reinterpret_cast<char*>(&node->count), sizeof(int));
+	in.read(reinterpret_cast<char*>(&node->is_leaf), sizeof(bool));
+
+	node->left = deserialize_node(in);
+	node->right = deserialize_node(in);
+
+	return node;
+}
+
+void XGBoostTree::serialize(std::ostream& out) const {
+    serialize_node(out, _root.get());
+}
+
+void XGBoostTree::deserialize(std::istream& in) {
+    _root = deserialize_node(in);
+}
 
 }

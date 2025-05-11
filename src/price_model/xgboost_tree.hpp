@@ -16,17 +16,14 @@ struct XGBoostConfig {
 class XGBoostTree {
 
 public:
-
-    XGBoostTree(const XGBoostConfig::XGBoostTreeConfig& config): config(config) {};
+    XGBoostTree(const XGBoostConfig::XGBoostTreeConfig& config): _config(config) {};
     Eigen::VectorXd predict(const Eigen::MatrixXd& X) const;
-    void train(
-        const Eigen::MatrixXd& X,
-        const Eigen::VectorXd& y
-    );
+    void train( const Eigen::MatrixXd& X, const Eigen::VectorXd& y);
+
+    void serialize(std::ostream& out) const;
+    void deserialize(std::istream& in);
 
 private:
-    const XGBoostConfig::XGBoostTreeConfig& config;
-
     struct Node {
         int feature_index;
         double threshold;
@@ -57,6 +54,9 @@ private:
         Eigen::VectorXd y_left;
     };
 
+    const XGBoostConfig::XGBoostTreeConfig& _config;
+    std::unique_ptr<Node> _root;
+
     void fit(
         const Eigen::MatrixXd& X,
         const Eigen::VectorXd& y,
@@ -64,11 +64,13 @@ private:
         int depth
     );
 
+    void serialize_node(std::ostream& out, const Node* node) const;
+    std::unique_ptr<Node> deserialize_node(std::istream& in) const;
+
     bool prune(std::unique_ptr<Node>& node);
     std::unique_ptr<XGBoostTree::SplitData> split_data(const Eigen::MatrixXd& X, const Eigen::VectorXd& y, double t, int f);
     double compute_value(const Eigen::VectorXd& y);
     TreeCandidate find_max_gain_split(const Eigen::VectorXd& feature, const Eigen::VectorXd& y);
-    std::unique_ptr<Node> root;
 };
 
 }
