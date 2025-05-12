@@ -24,7 +24,7 @@ public:
 
 private:
     struct Metrics {
-        double pmt = 0.0, piti = 0.0, front = 0.0, back = 0.0, ltv = 0.0;
+        double pmt = 0.0, piti = 0.0, front = 0.0, back = 0.0, ltv = 0.0, total = 0.0;
     };
 
 	static	double	to_double(const char *buf);
